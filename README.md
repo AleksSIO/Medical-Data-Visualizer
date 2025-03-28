@@ -1,41 +1,88 @@
-# Medical Data Visualizer
+# 🩺 Medical Data Visualizer
 
-This is the solution to the **Medical Data Visualizer** project from the [freeCodeCamp Data Analysis with Python](https://www.freecodecamp.org/learn/data-analysis-with-python/) certification.
-
-## 🩺 Project Overview
-
-The goal of this project is to analyze and visualize data from medical examinations. Using **Pandas**, **Matplotlib**, and **Seaborn**, we generate visualizations to explore relationships between **cardiovascular disease** and various health/lifestyle factors.
+This project is part of the [freeCodeCamp Data Analysis with Python](https://www.freecodecamp.org/learn/data-analysis-with-python/) certification.  
+It visualizes patient health data to explore trends and correlations between **lifestyle choices**, **body measurements**, and **cardiovascular disease**.
 
 ---
 
-## 📊 Dataset
+## 📁 Project Structure
 
-- File: `medical_examination.csv`
-- Each row represents a patient
-- Columns include: `age`, `height`, `weight`, `ap_hi`, `ap_lo`, `cholesterol`, `gluc`, `smoke`, `alco`, `active`, and `cardio`
-
----
-
-## 📌 Tasks Completed
-
-1. **Import Data** using Pandas from `medical_examination.csv`
-2. **Add an `overweight` column** (based on BMI > 25 → 1, else 0)
-3. **Normalize data**:
-   - `cholesterol` and `gluc`: 0 = normal, 1 = above normal or worse
-4. **Categorical Plot**:
-   - Melt data using `pd.melt`
-   - Group data by feature, value, and cardio
-   - Plot using `sns.catplot()`
-5. **Heat Map**:
-   - Clean invalid entries (e.g., `ap_lo > ap_hi`, extreme height/weight)
-   - Compute correlation matrix
-   - Plot using `sns.heatmap()` with upper-triangle mask
+```
+medical_data_visualizer.py   # Script with analysis and plotting logic  
+main.py                      # Development entrypoint to test your function  
+test_module.py               # Unit tests for validation  
+medical_examination.csv      # Provided medical dataset  
+catplot.png                  # Categorical plot output  
+heatmap.png                  # Correlation heatmap output  
+```
 
 ---
 
-## 📁 File Structure
+## 📊 Features
 
-├── medical_data_visualizer.py # Main analysis and plotting functions 
-├── medical_examination.csv # Provided dataset 
-├── test_module.py # Unit tests for project validation 
-├── main.py # Development/test runner 
+- Loads a real-world medical dataset with 13 features per patient  
+- Adds a new column to classify patients as **overweight** based on BMI  
+- Normalizes some values (e.g., cholesterol and glucose levels)  
+- Generates two main visualizations:
+  - **Categorical plot** (bar chart) to compare health indicators vs. cardiovascular disease
+  - **Correlation heatmap** to explore relationships between all numerical features
+
+---
+
+## 🧪 Technologies Used
+
+- **Python 3**
+- **Pandas**
+- **Matplotlib**
+- **Seaborn**
+
+---
+
+## 🚀 How to Run the Project
+
+1. Install required libraries:
+
+```bash
+pip install pandas matplotlib seaborn
+```
+
+2. Run the project:
+
+```bash
+python main.py
+```
+
+This will:
+
+- Generate and save two plots: `catplot.png` and `heatmap.png`  
+- Run tests from `test_module.py` to validate your solution
+
+---
+
+## 📈 Output Plot Descriptions
+
+### 📌 catplot.png
+
+A bar chart showing counts of patients grouped by:
+- Lifestyle choices (e.g., smoke, alcohol, active)
+- Health levels (cholesterol, glucose, overweight)
+- Presence or absence of **cardiovascular disease**
+
+### 📌 heatmap.png
+
+A correlation matrix showing how variables like:
+- Blood pressure
+- BMI
+- Age
+- Cholesterol
+
+...are related to each other, visualized with a heatmap.
+
+---
+
+## 📚 Dataset Source
+
+> Medical Examination Data  
+> Provided by freeCodeCamp  
+> Based on synthetic or anonymized data for educational use
+
